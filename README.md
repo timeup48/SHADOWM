@@ -1,10 +1,10 @@
-# CVEHACK - Elite Cybersecurity & Pentesting Suite
+# SHADOWM - Elite Cybersecurity & Pentesting Suite
 
-![CVEHACK Logo](https://img.shields.io/badge/CVEHACK-v1.0-blue.svg)
+![SHADOWM Logo](https://img.shields.io/badge/CVEHACK-v1.0-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-macOS-lightgrey.svg)
 ![License](https://img.shields.io/badge/license-Educational%20Use-red.svg)
 (Special thanks to https://github.com/CVEProject/cvelistV5 for the cve list used in this code)
-**CVEHACK** is a comprehensive, Mac-compatible cybersecurity and penetration testing suite designed for security professionals, researchers, and ethical hackers. It combines traditional pentesting tools with dynamic CVE integration and automated vulnerability assessment capabilities.
+**SHADOWM** is a comprehensive, Mac-compatible cybersecurity and penetration testing suite designed for security professionals, researchers, and ethical hackers. It combines traditional pentesting tools with dynamic CVE integration and automated vulnerability assessment capabilities.
 
 ## ⚠️ LEGAL DISCLAIMER
 
@@ -108,7 +108,7 @@ chmod +x pentest.sh
 
 ### Quick Scan Example
 ```bash
-# Start CVEHACK and select:
+# Start SHADOWM and select:
 # - Option 5: Quick Scan
 # - Enter target: example.com
 # - Review generated report
@@ -116,7 +116,7 @@ chmod +x pentest.sh
 
 ### CVE Testing Example
 ```bash
-# Start CVEHACK and select:
+# Start SHADOWM and select:
 # - Option 4: Custom CVE Testing
 # - Option 1: Fetch Recent CVEs
 # - Option 3: Test Specific CVE
@@ -171,7 +171,7 @@ NOTIFICATION_EMAIL="your-email@example.com"
 
 ## 📊 Reporting
 
-CVEHACK generates comprehensive reports in multiple formats:
+SHADOWM generates comprehensive reports in multiple formats:
 
 ### HTML Reports
 - Interactive web-based reports
@@ -202,7 +202,7 @@ CVEHACK generates comprehensive reports in multiple formats:
 ```
 
 ### Custom Scanner Generation
-CVEHACK can automatically generate custom scanners for CVEs:
+SHADOWM can automatically generate custom scanners for CVEs:
 - Fetches CVE details from NVD API
 - Analyzes vulnerability type
 - Generates appropriate test scripts
@@ -324,7 +324,7 @@ This project is licensed for **Educational Use Only**. See the [LICENSE](LICENSE
 
 ### Contributors
 - Timeup48
-**Remember: With great power comes great responsibility. Use CVEHACK ethically and legally.**
+**Remember: With great power comes great responsibility. Use SHADOWM ethically and legally.**
 
 ![Footer](https://img.shields.io/badge/Made%20with-❤️-red.svg)
 ![Bash](https://img.shields.io/badge/Made%20with-Bash-green.svg)
