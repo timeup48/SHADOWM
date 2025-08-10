@@ -323,24 +323,7 @@ This project is licensed for **Educational Use Only**. See the [LICENSE](LICENSE
 - **NVD** - National Vulnerability Database
 
 ### Contributors
-- Security researchers and ethical hackers worldwide
-- Open source tool developers
-- The cybersecurity community
-
-## 📞 Support
-
-### Getting Help
-- 📖 Check the [Wiki](https://github.com/your-repo/cvehack/wiki)
-- 🐛 Report bugs via [Issues](https://github.com/your-repo/cvehack/issues)
-- 💬 Join discussions in [Discussions](https://github.com/your-repo/cvehack/discussions)
-
-### Contact
-- **Email**: security@example.com
-- **Twitter**: @cvehack
-- **Website**: https://cvehack.example.com
-
----
-
+- Timeup48
 **Remember: With great power comes great responsibility. Use CVEHACK ethically and legally.**
 
 ![Footer](https://img.shields.io/badge/Made%20with-❤️-red.svg)
