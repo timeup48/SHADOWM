@@ -1,6 +1,6 @@
 # SHADOWM - Elite Cybersecurity & Pentesting Suite
 
-![SHADOWM Logo](https://img.shields.io/badge/CVEHACK-v1.0-blue.svg)
+![SHADOWM Logo](https://img.shields.io/badge/SHADOWM-v1.0-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-macOS-lightgrey.svg)
 ![License](https://img.shields.io/badge/license-Educational%20Use-red.svg)
 (Special thanks to https://github.com/CVEProject/cvelistV5 for the cve list used in this code)
