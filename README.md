@@ -328,6 +328,7 @@ This project is licensed for **Educational Use Only**. See the [LICENSE](LICENSE
 **Remember: With great power comes great responsibility. Use SHADOWM ethically and legally.**
 ### Donate
 - ETH: 0x2E1C365Fa85E7f60ECAaA4357FE688CB9f466eb3
+
 ![Footer](https://img.shields.io/badge/Made%20with-❤️-red.svg)
 ![Bash](https://img.shields.io/badge/Made%20with-Bash-green.svg)
 ![Security](https://img.shields.io/badge/Focus-Security-blue.svg)
