@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVEHACK Technical Security Report</title>
+    <link rel="stylesheet" href="../assets/technical.css">
+    <script src="../assets/prism.js"></script>
+    <script src="../assets/technical.js"></script>
+</head>
+<body>
+    <div class="report-container">
+        <!-- Header -->
+        <header class="report-header">
+            <h1>🔧 Technical Security Assessment Report</h1>
+            <div class="report-meta">
+                <table>
+                    <tr><td>Target System:</td><td>{{TARGET}}</td></tr>
+                    <tr><td>Assessment Date:</td><td>{{SCAN_DATE}}</td></tr>
+                    <tr><td>Assessor:</td><td>CVEHACK Automated Scanner</td></tr>
+                    <tr><td>Report Version:</td><td>{{REPORT_VERSION}}</td></tr>
+                </table>
+            </div>
+        </header>
+
+        <!-- Table of Contents -->
+        <nav class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#methodology">1. Methodology</a></li>
+                <li><a href="#scope">2. Scope and Limitations</a></li>
+                <li><a href="#findings">3. Technical Findings</a></li>
+                <li><a href="#vulnerabilities">4. Vulnerability Details</a></li>
+                <li><a href="#evidence">5. Evidence and Proof of Concept</a></li>
+                <li><a href="#remediation">6. Remediation Guidelines</a></li>
+                <li><a href="#appendix">7. Appendix</a></li>
+            </ul>
+        </nav>
+
+        <!-- Methodology -->
+        <section id="methodology" class="report-section">
+            <h2>1. Assessment Methodology</h2>
+            <div class="methodology-content">
+                <h3>Scanning Approach</h3>
+                <p>This assessment utilized the CVEHACK automated security testing framework, employing:</p>
+                <ul>
+                    <li>Network reconnaissance and service enumeration</li>
+                    <li>Web application security testing</li>
+                    <li>CVE-based vulnerability assessment</li>
+                    <li>Configuration security analysis</li>
+                </ul>
+                
+                <h3>Tools and Techniques</h3>
+                <div class="tools-grid">
+                    {{TOOLS_USED}}
+                </div>
+            </div>
+        </section>
+
+        <!-- Scope -->
+        <section id="scope" class="report-section">
+            <h2>2. Scope and Limitations</h2>
+            <div class="scope-content">
+                <h3>Assessment Scope</h3>
+                <ul>
+                    <li>Target: {{TARGET}}</li>
+                    <li>IP Range: {{IP_RANGE}}</li>
+                    <li>Services Tested: {{SERVICES_TESTED}}</li>
+                    <li>Assessment Type: {{ASSESSMENT_TYPE}}</li>
+                </ul>
+                
+                <h3>Limitations</h3>
+                <ul>
+                    <li>Automated scanning only - no manual verification</li>
+                    <li>Point-in-time assessment</li>
+                    <li>Limited to externally accessible services</li>
+                    <li>No social engineering or physical security testing</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Technical Findings -->
+        <section id="findings" class="report-section">
+            <h2>3. Technical Findings Summary</h2>
+            <div class="findings-summary">
+                <div class="finding-stats">
+                    <div class="stat-item critical">
+                        <span class="count">{{CRITICAL_COUNT}}</span>
+                        <span class="label">Critical</span>
+                    </div>
+                    <div class="stat-item high">
+                        <span class="count">{{HIGH_COUNT}}</span>
+                        <span class="label">High</span>
+                    </div>
+                    <div class="stat-item medium">
+                        <span class="count">{{MEDIUM_COUNT}}</span>
+                        <span class="label">Medium</span>
+                    </div>
+                    <div class="stat-item low">
+                        <span class="count">{{LOW_COUNT}}</span>
+                        <span class="label">Low</span>
+                    </div>
+                </div>
+                
+                <div class="services-discovered">
+                    <h3>Services Discovered</h3>
+                    <table class="services-table">
+                        <thead>
+                            <tr>
+                                <th>Port</th>
+                                <th>Service</th>
+                                <th>Version</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{SERVICES_TABLE}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vulnerability Details -->
+        <section id="vulnerabilities" class="report-section">
+            <h2>4. Detailed Vulnerability Analysis</h2>
+            <div class="vulnerabilities-content">
+                {{VULNERABILITY_DETAILS}}
+            </div>
+        </section>
+
+        <!-- Evidence -->
+        <section id="evidence" class="report-section">
+            <h2>5. Evidence and Proof of Concept</h2>
+            <div class="evidence-content">
+                {{EVIDENCE_SECTION}}
+            </div>
+        </section>
+
+        <!-- Remediation -->
+        <section id="remediation" class="report-section">
+            <h2>6. Remediation Guidelines</h2>
+            <div class="remediation-content">
+                {{REMEDIATION_GUIDELINES}}
+            </div>
+        </section>
+
+        <!-- Appendix -->
+        <section id="appendix" class="report-section">
+            <h2>7. Appendix</h2>
+            <div class="appendix-content">
+                <h3>Raw Scan Data</h3>
+                <pre><code class="language-bash">{{RAW_SCAN_DATA}}</code></pre>
+                
+                <h3>CVE References</h3>
+                <div class="cve-references">
+                    {{CVE_REFERENCES}}
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

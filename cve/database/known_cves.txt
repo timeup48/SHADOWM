@@ -1,0 +1,22 @@
+# CVEHACK Local CVE Database - NO API REQUIRED
+# Format: CVE-ID|SEVERITY|TYPE|DESCRIPTION|AFFECTED_SERVICES|DETECTION_METHOD|YEAR
+CVE-2023-0386|HIGH|LPE|Linux Kernel OverlayFS Local Privilege Escalation|linux,kernel|version_check|2023
+CVE-2023-1326|CRITICAL|RCE|Apache HTTP Server mod_rewrite Buffer Overflow|apache,httpd|banner_check|2023
+CVE-2023-2825|HIGH|SQLi|PHPMyAdmin SQL Injection via Import Feature|phpmyadmin,mysql|path_check|2023
+CVE-2023-3519|CRITICAL|RCE|Citrix NetScaler Remote Code Execution|citrix,netscaler|service_check|2023
+CVE-2023-4966|CRITICAL|INFO|Citrix NetScaler Information Disclosure|citrix,netscaler|ssl_check|2023
+CVE-2023-5631|HIGH|XSS|WordPress Core Stored Cross-Site Scripting|wordpress|version_check|2023
+CVE-2023-6553|MEDIUM|CSRF|WordPress Plugin Cross-Site Request Forgery|wordpress|plugin_check|2023
+CVE-2022-47966|CRITICAL|RCE|Zoho ManageEngine Multiple Products RCE|zoho,manageengine|service_check|2022
+CVE-2022-40684|CRITICAL|AUTH|Fortinet FortiOS Authentication Bypass|fortinet,fortios|auth_check|2022
+CVE-2022-42889|CRITICAL|RCE|Apache Commons Text Remote Code Execution|apache,commons|dependency_check|2022
+CVE-2022-26134|CRITICAL|RCE|Atlassian Confluence Remote Code Execution|confluence,atlassian|path_check|2022
+CVE-2022-1388|CRITICAL|AUTH|F5 BIG-IP iControl REST Authentication Bypass|f5,bigip|service_check|2022
+CVE-2021-44228|CRITICAL|RCE|Apache Log4j Remote Code Execution (Log4Shell)|log4j,java|dependency_check|2021
+CVE-2021-34527|CRITICAL|RCE|Windows Print Spooler Remote Code Execution|windows,spooler|service_check|2021
+CVE-2021-26855|CRITICAL|RCE|Microsoft Exchange Server Remote Code Execution|exchange,microsoft|service_check|2021
+CVE-2020-1472|CRITICAL|PRIV|Windows Netlogon Privilege Escalation (Zerologon)|windows,netlogon|protocol_check|2020
+CVE-2019-0708|CRITICAL|RCE|Windows Remote Desktop Services Remote Code Execution (BlueKeep)|windows,rdp|service_check|2019
+CVE-2017-0144|CRITICAL|RCE|Windows SMB Remote Code Execution (EternalBlue)|windows,smb|protocol_check|2017
+CVE-2014-6271|CRITICAL|RCE|Bash Remote Code Execution (Shellshock)|bash,shell|version_check|2014
+CVE-2014-0160|HIGH|INFO|OpenSSL Heartbleed Information Disclosure|openssl,ssl|ssl_check|2014

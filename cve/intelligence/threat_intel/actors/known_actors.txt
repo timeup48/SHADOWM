@@ -1,0 +1,6 @@
+# Known threat actors and their CVE preferences
+# Format: ACTOR_NAME|PREFERRED_CVES|TACTICS|TARGETS|SOPHISTICATION
+Lazarus Group|CVE-2017-0144,CVE-2019-0708|Ransomware,Espionage|Financial,Government|HIGH
+APT41|CVE-2019-0708,CVE-2021-26855|Espionage,Financial|Healthcare,Government|HIGH
+Various APTs|CVE-2021-44228|Mass Exploitation|Opportunistic|MEDIUM
+Unknown Actors|CVE-2014-6271|Botnet,Cryptomining|Web Servers|LOW

@@ -1,0 +1,7 @@
+# Recent IOCs related to CVE exploitation
+# Format: IOC_TYPE|IOC_VALUE|CVE_REFERENCE|CAMPAIGN|CONFIDENCE
+IP|192.168.1.100|CVE-2021-44228|Log4Shell Campaign|HIGH
+DOMAIN|malicious-log4j.com|CVE-2021-44228|Log4Shell Campaign|HIGH
+URL|http://evil.com/exploit.class|CVE-2021-44228|Log4Shell Campaign|MEDIUM
+HASH|d41d8cd98f00b204e9800998ecf8427e|CVE-2014-6271|Shellshock Botnet|HIGH
+IP|10.0.0.50|CVE-2017-0144|EternalBlue Campaign|HIGH

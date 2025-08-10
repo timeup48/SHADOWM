@@ -1,0 +1,9 @@
+# Timing Profiles for Evasion
+# Format: PROFILE|MIN_DELAY|MAX_DELAY|JITTER|DESCRIPTION
+AGGRESSIVE|0.1|0.5|0.2|Fast scanning with minimal delays
+NORMAL|0.5|2.0|0.5|Balanced speed and stealth
+STEALTH|2.0|8.0|2.0|Slow and careful scanning
+PARANOID|10.0|30.0|10.0|Extremely slow to avoid detection
+HUMAN_LIKE|1.0|15.0|5.0|Mimics human browsing patterns
+BURST|0.05|0.1|0.02|Very fast bursts with long pauses
+LOW_AND_SLOW|30.0|300.0|60.0|Extended timeframes for APT simulation

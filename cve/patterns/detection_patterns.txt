@@ -1,0 +1,30 @@
+# Comprehensive Vulnerability Detection Patterns - NO API REQUIRED
+# Format: PATTERN_TYPE|PATTERN|CVE_REFERENCE|DESCRIPTION|SEVERITY
+
+# Web Application Error Patterns
+SQL_ERROR|mysql_fetch_array|CVE-2023-2825|MySQL Error Disclosure|MEDIUM
+SQL_ERROR|ORA-[0-9]{5}|GENERIC-SQL|Oracle Error Disclosure|MEDIUM
+SQL_ERROR|Microsoft OLE DB|GENERIC-SQL|MSSQL Error Disclosure|MEDIUM
+XSS_PATTERN|<script|CVE-2023-5631|Potential XSS Vulnerability|HIGH
+XSS_PATTERN|javascript:|CVE-2023-5631|JavaScript Protocol XSS|HIGH
+LFI_PATTERN|\.\.\/|GENERIC-LFI|Local File Inclusion Pattern|HIGH
+RFI_PATTERN|http.*=http|GENERIC-RFI|Remote File Inclusion Pattern|CRITICAL
+CMD_INJECTION|;id;|GENERIC-CMD|Unix Command Injection|CRITICAL
+CMD_INJECTION|&&whoami|GENERIC-CMD|Windows Command Injection|CRITICAL
+
+# Service Banner Patterns
+APACHE_VULN|Apache/2\.4\.[0-4][0-9]|CVE-2023-1326|Vulnerable Apache Version|HIGH
+NGINX_VULN|nginx/1\.1[0-9]\.|CVE-2022-41741|Vulnerable Nginx Version|HIGH
+OPENSSH_VULN|OpenSSH_[0-7]\.|CVE-2023-0386|Vulnerable OpenSSH Version|HIGH
+MYSQL_VULN|MySQL 5\.[0-6]\.|CVE-2022-21245|Vulnerable MySQL Version|HIGH
+
+# Protocol Signatures
+SMB_VULN|SMBv1|CVE-2017-0144|SMBv1 EternalBlue Vulnerability|CRITICAL
+RDP_VULN|CredSSP|CVE-2019-0708|RDP BlueKeep Vulnerability|CRITICAL
+SSL_VULN|TLSv1\.0|CVE-2014-3566|SSL POODLE Vulnerability|MEDIUM
+
+# Application Signatures
+WORDPRESS_VULN|wp-content|CVE-2023-5631|WordPress Installation Detected|MEDIUM
+JOOMLA_VULN|/administrator/|CVE-2023-23752|Joomla Installation Detected|MEDIUM
+DRUPAL_VULN|/sites/default/|CVE-2018-7600|Drupal Installation Detected|HIGH
+PHPMYADMIN_VULN|phpMyAdmin|CVE-2023-2825|phpMyAdmin Installation Detected|HIGH

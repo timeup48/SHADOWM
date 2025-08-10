@@ -1,0 +1,12 @@
+# CVE Correlations Database - Service and Technology Mappings
+# Format: SERVICE|TECHNOLOGY|CVE_PATTERN|DETECTION_METHOD|CORRELATION_STRENGTH
+apache|httpd|CVE-20[0-9]{2}-[0-9]+|banner_check|HIGH
+nginx|web_server|CVE-20[0-9]{2}-[0-9]+|version_check|HIGH
+wordpress|cms|CVE-20[0-9]{2}-[0-9]+|path_check|MEDIUM
+mysql|database|CVE-20[0-9]{2}-[0-9]+|service_check|HIGH
+php|language|CVE-20[0-9]{2}-[0-9]+|version_check|MEDIUM
+openssl|crypto|CVE-20[0-9]{2}-[0-9]+|ssl_check|HIGH
+openssh|ssh|CVE-20[0-9]{2}-[0-9]+|banner_check|HIGH
+windows|os|CVE-20[0-9]{2}-[0-9]+|os_check|HIGH
+linux|os|CVE-20[0-9]{2}-[0-9]+|kernel_check|HIGH
+java|runtime|CVE-20[0-9]{2}-[0-9]+|dependency_check|MEDIUM

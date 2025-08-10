@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVEHACK Executive Security Dashboard</title>
+    <link rel="stylesheet" href="../assets/dashboard.css">
+    <script src="../assets/chart.min.js"></script>
+    <script src="../assets/dashboard.js"></script>
+</head>
+<body class="{{THEME}}">
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>🛡️ CVEHACK</h1>
+                    <span class="subtitle">Executive Security Dashboard</span>
+                </div>
+                <div class="scan-info">
+                    <div class="info-item">
+                        <span class="label">Target:</span>
+                        <span class="value">{{TARGET}}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Scan Date:</span>
+                        <span class="value">{{SCAN_DATE}}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Duration:</span>
+                        <span class="value">{{SCAN_DURATION}}</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Executive Summary -->
+        <section class="executive-summary">
+            <h2>Executive Summary</h2>
+            <div class="summary-grid">
+                <div class="summary-card critical">
+                    <div class="card-icon">🚨</div>
+                    <div class="card-content">
+                        <h3>{{CRITICAL_COUNT}}</h3>
+                        <p>Critical Vulnerabilities</p>
+                    </div>
+                </div>
+                <div class="summary-card high">
+                    <div class="card-icon">⚠️</div>
+                    <div class="card-content">
+                        <h3>{{HIGH_COUNT}}</h3>
+                        <p>High Risk Issues</p>
+                    </div>
+                </div>
+                <div class="summary-card medium">
+                    <div class="card-icon">⚡</div>
+                    <div class="card-content">
+                        <h3>{{MEDIUM_COUNT}}</h3>
+                        <p>Medium Risk Issues</p>
+                    </div>
+                </div>
+                <div class="summary-card info">
+                    <div class="card-icon">ℹ️</div>
+                    <div class="card-content">
+                        <h3>{{INFO_COUNT}}</h3>
+                        <p>Informational</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Risk Assessment -->
+        <section class="risk-assessment">
+            <div class="section-grid">
+                <div class="chart-container">
+                    <h3>Risk Distribution</h3>
+                    <canvas id="riskChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Vulnerability Categories</h3>
+                    <canvas id="categoryChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Vulnerabilities -->
+        <section class="top-vulnerabilities">
+            <h2>Top Priority Vulnerabilities</h2>
+            <div class="vulnerability-list">
+                {{TOP_VULNERABILITIES}}
+            </div>
+        </section>
+
+        <!-- Compliance Status -->
+        <section class="compliance-status">
+            <h2>Compliance Overview</h2>
+            <div class="compliance-grid">
+                <div class="compliance-item">
+                    <h4>OWASP Top 10</h4>
+                    <div class="compliance-bar">
+                        <div class="progress" style="width: {{OWASP_COMPLIANCE}}%"></div>
+                    </div>
+                    <span class="percentage">{{OWASP_COMPLIANCE}}%</span>
+                </div>
+                <div class="compliance-item">
+                    <h4>NIST Framework</h4>
+                    <div class="compliance-bar">
+                        <div class="progress" style="width: {{NIST_COMPLIANCE}}%"></div>
+                    </div>
+                    <span class="percentage">{{NIST_COMPLIANCE}}%</span>
+                </div>
+                <div class="compliance-item">
+                    <h4>ISO 27001</h4>
+                    <div class="compliance-bar">
+                        <div class="progress" style="width: {{ISO_COMPLIANCE}}%"></div>
+                    </div>
+                    <span class="percentage">{{ISO_COMPLIANCE}}%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommendations -->
+        <section class="recommendations">
+            <h2>Strategic Recommendations</h2>
+            <div class="recommendation-list">
+                {{RECOMMENDATIONS}}
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <p>Generated by CVEHACK v1.0 | {{GENERATION_TIME}}</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCharts();
+            initializeInteractivity();
+        });
+    </script>
+</body>
+</html>

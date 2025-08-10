@@ -1,0 +1,8 @@
+# Proxy List for Source IP Rotation
+# Format: TYPE|HOST|PORT|USERNAME|PASSWORD|RELIABILITY|ANONYMITY
+HTTP|127.0.0.1|8080|||HIGH|TRANSPARENT
+SOCKS5|127.0.0.1|1080|||HIGH|ANONYMOUS
+HTTP|proxy1.example.com|3128|||MEDIUM|ANONYMOUS
+HTTP|proxy2.example.com|8080|||MEDIUM|TRANSPARENT
+SOCKS5|proxy3.example.com|1080|||LOW|ELITE
+# Add your own proxy servers here
