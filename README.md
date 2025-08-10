@@ -61,7 +61,7 @@
 ### Quick Install
 ```bash
 # Clone the repository
-git clone https://github.com/your-repo/cvehack.git
+git clone https://github.com/timeup48/UltimateMacHack
 cd cvehack
 
 # Make the main script executable
