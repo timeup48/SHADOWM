@@ -3,6 +3,7 @@
 ![SHADOWM Logo](https://img.shields.io/badge/SHADOWM-v1.0-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-macOS-lightgrey.svg)
 ![License](https://img.shields.io/badge/license-Educational%20Use-red.svg)
+
 (Special thanks to https://github.com/CVEProject/cvelistV5 for the cve list used in this code)
 **SHADOWM** is a comprehensive, Mac-compatible cybersecurity and penetration testing suite designed for security professionals, researchers, and ethical hackers. It combines traditional pentesting tools with dynamic CVE integration and automated vulnerability assessment capabilities.
 
