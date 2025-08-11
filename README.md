@@ -1,6 +1,6 @@
 # SHADOWM - Elite Cybersecurity & Pentesting Suite
 
-![SHADOWM Logo](https://img.shields.io/badge/SHADOWM-v1.0-blue.svg)
+![SHADOWM Logo](https://img.shields.io/badge/SHADOWM-v2.0-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-macOS-lightgrey.svg)
 ![License](https://img.shields.io/badge/license-Educational%20Use-red.svg)
 
