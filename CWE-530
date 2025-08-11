@@ -1,0 +1,194 @@
+#!/bin/bash
+
+TARGET_URL="$1"
+
+if [[ -z "$TARGET_URL" ]]; then
+  echo "Usage: $0 <target_url>"
+  exit 1
+fi
+
+# Output directory for saved responses
+OUTPUT_DIR="cwe530_scan_$(date +%Y%m%d_%H%M%S)"
+mkdir -p "$OUTPUT_DIR"
+
+# Expanded keywords indicating sensitive info leaks
+KEYWORDS=(
+  "Exception"
+  "Stacktrace"
+  "Traceback"
+  "Fatal error"
+  "Warning"
+  "Error"
+  "at com."
+  "java.lang."
+  "PHP Parse error"
+  "SQL syntax"
+  "ORA-"
+  "Microsoft OLE DB Provider"
+  "Debug mode"
+  "Exception Details"
+  "File not found"
+  "Access denied"
+  "Trace ID"
+  "Request ID"
+  "at line"
+  "SyntaxError"
+  "Unhandled exception"
+  "Segmentation fault"
+  "Call stack"
+  "NullReferenceException"
+  "TypeError"
+  "Assertion failed"
+  "Deprecated"
+  "Notice:"
+  "Parse error"
+  "Fatal Exception"
+  "Stack overflow"
+  "Runtime error"
+  "Uncaught Exception"
+  "System.IO.IOException"
+  "System.NullReferenceException"
+  "ORA-00942"
+  "ORA-00933"
+  "ORA-06512"
+  "ORA-00904"
+  "org.hibernate"
+  "javax.servlet"
+  "SQLSTATE"
+  "DBError"
+)
+
+# Patterns for actual sensitive info detection (second scan)
+declare -A PATTERNS=(
+  ["API Keys or Tokens"]="(api[_-]?key|secret|token)[\"'=:\s]*[a-zA-Z0-9_\-]{20,}"
+  ["JWT Tokens"]="eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+"
+  ["Email Addresses"]="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+  ["Private IP Addresses"]="(10\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}|192\.168\.[0-9]{1,3}\.[0-9]{1,3}|172\.(1[6-9]|2[0-9]|3[0-1])\.[0-9]{1,3}\.[0-9]{1,3})"
+  ["SQL Errors"]="(SQL syntax|MySQL|ORA-|SQLite|PostgreSQL|syntax error at or near)"
+  ["Stack Traces"]="(Exception in thread|at [\w\.]+\([\w\.]+:\d+\))"
+  ["Passwords or Credentials"]="password[\"'=:\s]*[^\s]+"
+  ["AWS Secret Access Key"]="(?i)aws_secret_access_key[\"'=:\s]*[A-Za-z0-9/+=]{40}"
+)
+
+echo "Starting CWE-530 scan on: $TARGET_URL"
+echo "Results will be saved to: $OUTPUT_DIR"
+echo "--------------------------------------------------"
+
+scan_url() {
+  local url="$1"
+  local filename="$2"
+
+  echo "[*] Fetching: $url"
+  response_file="${OUTPUT_DIR}/${filename}.response"
+  curl -s -L -w "\nHTTP_CODE:%{http_code}\n" "$url" -o "$response_file"
+
+  http_code=$(tail -n 1 "$response_file" | sed 's/HTTP_CODE://')
+  echo "[*] HTTP Status: $http_code"
+
+  head -n -1 "$response_file" > "${response_file}.tmp" && mv "${response_file}.tmp" "$response_file"
+
+  local found=0
+  for keyword in "${KEYWORDS[@]}"; do
+    if grep -qi "$keyword" "$response_file"; then
+      echo "[!] Keyword matched: '$keyword'"
+      found=1
+    fi
+  done
+
+  if [[ $found -eq 1 ]]; then
+    echo "[!] Potential sensitive info found in response saved to $response_file"
+  else
+    echo "[-] No sensitive info keywords found."
+  fi
+
+  echo "--------------------------------------------------"
+}
+
+# Scan main URL
+scan_url "$TARGET_URL" "main"
+
+# Expanded common sensitive paths to probe
+paths=(
+  "/.env"
+  "/config.php"
+  "/config/config.php"
+  "/web.config"
+  "/.git/config"
+  "/.htaccess"
+  "/server-status"
+  "/phpinfo.php"
+  "/phpinfo"
+  "/error_log"
+  "/debug.log"
+  "/logs/error.log"
+  "/.DS_Store"
+  "/admin/"
+  "/backup/"
+  "/backup.zip"
+  "/.svn/entries"
+  "/.bzr/branch/branch.conf"
+  "/.hg/hgrc"
+  "/.idea/workspace.xml"
+  "/.vscode/settings.json"
+  "/.aws/credentials"
+  "/config.json"
+  "/config.yaml"
+  "/config.yml"
+  "/.env.local"
+  "/.env.production"
+  "/.env.testing"
+  "/composer.json"
+  "/package.json"
+  "/README.md"
+  "/docker-compose.yml"
+  "/docker-compose.yaml"
+  "/.docker/config.json"
+  "/config.inc.php"
+  "/wp-config.php"
+  "/backup.sql"
+  "/database.sql"
+  "/.bash_history"
+  "/.mysql_history"
+)
+
+base_url=$(echo "$TARGET_URL" | sed -E 's|(https?://[^/]+).*|\1|')
+
+echo "Starting probing common sensitive paths..."
+for p in "${paths[@]}"; do
+  full_url="${base_url}${p}"
+  filename=$(echo "$p" | sed 's|/|_|g' | sed 's|__|_|g' | sed 's|^_||')
+  scan_url "$full_url" "$filename"
+done
+
+echo "Initial scan completed."
+echo "Starting detailed sensitive info analysis on saved responses..."
+echo "--------------------------------------------------"
+
+found_any=0
+
+for file in "$OUTPUT_DIR"/*.response; do
+  echo -e "\nScanning file: $file"
+
+  file_found=0
+  for name in "${!PATTERNS[@]}"; do
+    pattern="${PATTERNS[$name]}"
+    matches=$(grep -Eoi "$pattern" "$file" | head -10)
+
+    if [[ -n "$matches" ]]; then
+      file_found=1
+      found_any=1
+      echo "  [!!] Found $name:"
+      echo "$matches" | sed 's/^/    /'
+    fi
+  done
+
+  if [[ $file_found -eq 0 ]]; then
+    echo "  [-] No actual sensitive info found."
+  fi
+done
+
+if [[ $found_any -eq 0 ]]; then
+  echo -e "\nNo actual sensitive info found in any files."
+else
+  echo -e "\nScan complete: Some files contain possible sensitive info above."
+fi
